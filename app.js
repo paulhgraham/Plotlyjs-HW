@@ -15,16 +15,14 @@ function getSampleNames(){
 
 getSampleNames();
 
-function optionChanged(sample){
-  updatePie(sample);
-  updateBubble(sample);
-  updateMetadata(sample);
-};
+
 
 function updatePie(sample) {
   var sampleURL = `/samples/${sample}`
+  console.log(sampleURL)
   Plotly.d3.json(sampleURL,function(error,response){
       if (error) return console.log(error);
+      console.log(response)
       var labels = []
       var values = []
       var hovers = []
@@ -107,4 +105,11 @@ function updateMetadata(sample){
 };
 
 //initialize
-optionChanged("BB_940");
+// optionChanged("BB_940");
+
+
+function optionChanged(sample){
+    updatePie(sample);
+    updateBubble(sample);
+    updateMetadata(sample);
+  };
